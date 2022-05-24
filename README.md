@@ -1,3 +1,8 @@
+![GitHub](https://img.shields.io/github/license/ziguifrido/HashUtil)
+![GitHub top language](https://img.shields.io/github/languages/top/ziguifrido/HashUtil)
+![GitHub last commit](https://img.shields.io/github/last-commit/ziguifrido/HashUtil)
+
+
 # HashUtil
 #### A simple hash library for Java
 
@@ -26,3 +31,6 @@ and the return will be `true`.
 ## Warning
 
 Be aware that simply using the password hash as security validation is **not** secure.
+
+## Licence
+This projet uses the [MIT license](https://github.com/ziguifrido/HashUtil/blob/master/LICENSE.md).
