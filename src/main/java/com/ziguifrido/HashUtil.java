@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * Purpose: Generate and validate MD5, SHA-1, SHA-256 and SHA-512 hashes.
  *
  * @author Marcos Oliveira
- * @version 1.1.0 23/10/2023
+ * @version 1.1.1 24/10/2023
  */
 class HashUtil {
 

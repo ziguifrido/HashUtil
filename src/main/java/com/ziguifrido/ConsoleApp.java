@@ -39,7 +39,7 @@ public class ConsoleApp {
 
         key = console.readLine("Enter the Key:  ");
 
-        if (algorithm.equals("1")) {
+        if (option.equals("1")) {
             generateHash(algorithm, key);
         } else {
             hash = console.readLine("Enter the Hash:  ");
