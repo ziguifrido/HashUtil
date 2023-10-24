@@ -1,20 +1,21 @@
 package com.ziguifrido;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 
 /**
  * HashUtil.java
  * Purpose: Generate and validate MD5, SHA-1, SHA-256 and SHA-512 hashes.
  *
  * @author Marcos Oliveira
- * @version 1.0 09/01/2018
+ * @version 1.1.0 23/10/2023
  */
 class HashUtil {
 
-    private static MessageDigest md;
+    private HashUtil() {
+        throw new IllegalStateException("Utility class");
+    }
 
     /**
      * Generates a MD5 hash from a key
@@ -52,25 +53,26 @@ class HashUtil {
         return hash(key, "SHA-512");
     }
 
-
     /**
-     * Generates a hash from determined key and hash algorithm (MD5, SHA-1, SHA-256, SHA-512)
+     * Generates a hash from determined key and hash algorithm (MD5, SHA-1, SHA-256,
+     * 
+     * SHA-512)
      *
      * @return A String with the hash.
      */
     public static String hash(String key, String algorithm) {
+        MessageDigest md;
+
         if (algorithm.matches("MD5|SHA-1|SHA-256|SHA-512")) {
             try {
                 md = MessageDigest.getInstance(algorithm);
-                byte hash[] = md.digest(key.getBytes("UTF-8"));
+                byte[] hash = md.digest(key.getBytes(StandardCharsets.UTF_8));
                 StringBuilder sb = new StringBuilder();
                 for (byte b : hash) {
                     sb.append(String.format("%02X", 0xFF & b));
                 }
                 return sb.toString();
             } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
         }
@@ -114,7 +116,9 @@ class HashUtil {
     }
 
     /**
-     * Validates a hash from the hash generated from the given key with given hash algorithm
+     * 
+     * Validates a hash from the hash generated from the given key with given hash
+     * algorithm
      *
      * @return A Boolean with the validation result.
      */
