@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * Purpose: Generate and validate MD5, SHA-1, SHA-256 and SHA-512 hashes.
  *
  * @author Marcos Oliveira
- * @version 1.1.1 24/10/2023
+ * @version 1.1.2 14/04/2024
  */
 class HashUtil {
 
@@ -69,7 +69,7 @@ class HashUtil {
                 byte[] hash = md.digest(key.getBytes(StandardCharsets.UTF_8));
                 StringBuilder sb = new StringBuilder();
                 for (byte b : hash) {
-                    sb.append(String.format("%02X", 0xFF & b));
+                    sb.append(String.format("%02x", 0xFF & b));
                 }
                 return sb.toString();
             } catch (NoSuchAlgorithmException e) {
